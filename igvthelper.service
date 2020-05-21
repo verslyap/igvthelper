@@ -1,0 +1,10 @@
+[Unit]
+Description=Loads Intel vgpus from a configuration file
+
+[Service]
+Type=oneshot
+RemainAfterExit=true
+ExecStart=igvthelper --load
+
+[Install]
+WantedBy=basic.target
