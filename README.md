@@ -16,3 +16,5 @@ i915-GVTg_V5_8
 low_gm_size: 64MB high_gm_size: 384MB fence: 4 resolution: 1024x768 weight: 2
 
 Or the --list options which simply outputs /etc/igvthelper/igvthelper.conf for convenience.
+
+It also includes a systemd until file that can be enabled to create the vGPUs automatically at boot time.
