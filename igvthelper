@@ -1,0 +1,27 @@
+#!/bin/bash
+
+case $1 in
+  "--list")
+    $(cat /etc/igvthelper/igvthelper.conf)
+    ;;
+
+  "--types")
+    types=$(ls -A1 /sys/bus/pci/devices/0000:00:02.0/mdev_supported_types)
+    for i in $types; do
+      echo $i
+      echo $(cat /sys/bus/pci/devices/0000:00:02.0/mdev_supported_types/$i/description)
+    done
+    ;;
+
+  "--load")
+    conf="/etc/igvthelper/igvthelper.conf"
+    while IFS= read -r line
+    do
+      if [ ${line:0:1} != "#" ]
+        then
+        echo $line
+        $(echo $(echo $line | cut -d " " -f 3) > /sys/bus/pci/devices/0000:00:02.0/mdev_supported_types/$(echo $line | cut -d " " -f 4)/create)
+      fi
+    done < $conf
+    ;;
+esac
