@@ -3,8 +3,8 @@ igvthelper is a simple bash script that creates vgvt vGPUs for intel graphics ha
 
 The configuration file is located at /etc/igvthelper/igvthelper.conf.  Each line of the configuration file containes the information necessary to create a vGPU.  The layout for the configuration file is roughly as follows:
 
-#Lines with a poundsign are comments
-#Each line starts with the word device, a friendly name, a uuid, and the vGPU type
+#Lines with a poundsign are comments  
+#Each line starts with the word device, a friendly name, a uuid, and the vGPU type  
 device examplevgpu 32fb066b-dcab-4c65-9b1d-cf2d5c18d869 i915-GVTg_V5_8
 
 igvthelper can also be run with the --types option.  This will list the available vGPU types that can be created.
